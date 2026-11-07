@@ -21,9 +21,13 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
+    overflow-x: hidden;
 }
 
 body {
+    min-width: 320px;
+    width: 100%;
+    overflow-x: hidden;
     background: var(--background);
     color: var(--text);
     font-family: 'Inter', sans-serif;
@@ -35,35 +39,50 @@ a {
     text-decoration: none;
 }
 
-.header {
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header,
+body > header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 88px;
-    padding: 0 7%;
+    min-height: 88px;
+    padding: 12px 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(5, 5, 5, 0.94);
+    gap: 25px;
+    background: rgba(5, 5, 5, 0.96);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(14px);
     z-index: 1000;
 }
 
-.header-logo img {
-    width: 175px;
-    height: auto;
+.header-logo img,
+.header > a img,
+body > header > a img {
     display: block;
+    width: 175px;
+    max-width: 35vw;
+    height: auto;
 }
 
-.navigation {
+.navigation,
+.header nav,
+body > header nav {
     display: flex;
     align-items: center;
-    gap: 36px;
+    justify-content: center;
+    gap: 30px;
 }
 
-.navigation a {
+.navigation a,
+.header nav a,
+body > header nav a {
     color: var(--muted);
     font-size: 12px;
     font-weight: 700;
@@ -71,7 +90,9 @@ a {
     transition: color 0.3s;
 }
 
-.navigation a:hover {
+.navigation a:hover,
+.header nav a:hover,
+body > header nav a:hover {
     color: var(--red-light);
 }
 
@@ -132,10 +153,11 @@ a {
 }
 
 .hero-logo {
+    display: block;
     width: 100%;
     max-width: 1050px;
     height: auto;
-    margin-bottom: 45px;
+    margin: 0 auto 45px;
     filter: drop-shadow(0 0 25px rgba(160, 35, 20, 0.22));
 }
 
@@ -217,6 +239,7 @@ a {
 
 .spotify-container iframe {
     display: block;
+    width: 100%;
     border: none;
 }
 
@@ -298,7 +321,8 @@ a {
     background: var(--red);
 }
 
-.footer {
+.footer,
+body > footer {
     padding: 45px 7%;
     text-align: center;
     border-top: 1px solid var(--border);
@@ -312,34 +336,105 @@ a {
     margin-bottom: 15px;
 }
 
-.footer p {
+.footer p,
+body > footer p {
     color: var(--muted);
     font-size: 11px;
 }
 
-.footer-links {
+.footer-links,
+body > footer .footer-links {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 25px;
     margin-top: 18px;
 }
 
-.footer-links a {
+.footer-links a,
+body > footer a {
     color: var(--muted);
     font-size: 11px;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+body > footer a:hover {
     color: var(--red-light);
 }
 
+.legal-page {
+    width: min(100% - 48px, 900px);
+    margin: 0 auto;
+    padding: 145px 0 90px;
+    text-align: left;
+}
+
+.legal-page h1 {
+    margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    color: var(--text);
+    letter-spacing: 2px;
+}
+
+.legal-page > p {
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.legal-page section {
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+.legal-page h2 {
+    margin-bottom: 12px;
+    color: var(--red-light);
+    font-family: 'Cinzel', serif;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.legal-page p,
+.legal-page li {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.legal-page p + p {
+    margin-top: 15px;
+}
+
+.legal-page ul {
+    margin: 12px 0 12px 22px;
+}
+
+.legal-page a {
+    color: var(--red-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.legal-page a:hover {
+    color: white;
+}
+
 @media (max-width: 800px) {
-    .header {
-        height: 72px;
-        padding: 0 5%;
+    .header,
+    body > header {
+        min-height: 72px;
+        padding: 10px 5%;
     }
 
-    .header-logo img {
+    .header-logo img,
+    .header > a img,
+    body > header > a img {
         width: 135px;
     }
 
@@ -365,6 +460,20 @@ a {
         display: flex;
     }
 
+    .header nav:not(.navigation),
+    body > header nav:not(.navigation) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px 15px;
+    }
+
+    .header nav:not(.navigation) a,
+    body > header nav:not(.navigation) a {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
     .hero {
         min-height: 780px;
         min-height: 100svh;
@@ -387,9 +496,39 @@ a {
     .section {
         padding: 80px 6%;
     }
+
+    .legal-page {
+        width: min(100% - 36px, 700px);
+        padding-top: 115px;
+    }
+
+    .legal-page section {
+        padding: 22px;
+    }
 }
 
 @media (max-width: 480px) {
+    .header,
+    body > header {
+        gap: 10px;
+    }
+
+    .header-logo img,
+    .header > a img,
+    body > header > a img {
+        width: 105px;
+    }
+
+    .header nav:not(.navigation),
+    body > header nav:not(.navigation) {
+        gap: 5px 10px;
+    }
+
+    .header nav:not(.navigation) a,
+    body > header nav:not(.navigation) a {
+        font-size: 9px;
+    }
+
     .hero {
         min-height: 720px;
         min-height: 100svh;
@@ -409,6 +548,35 @@ a {
 
     .content-placeholder h3 {
         font-size: 17px;
+    }
+
+    .legal-page {
+        width: calc(100% - 30px);
+        padding-top: 105px;
+        padding-bottom: 55px;
+    }
+
+    .legal-page h1 {
+        font-size: 30px;
+    }
+
+    .legal-page section {
+        margin-bottom: 18px;
+        padding: 18px;
+    }
+
+    .legal-page h2 {
+        font-size: 17px;
+    }
+
+    .legal-page p,
+    .legal-page li {
+        font-size: 13px;
+    }
+
+    .footer-links,
+    body > footer .footer-links {
+        gap: 15px;
     }
 }
 
