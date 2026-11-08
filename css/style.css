@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -70,18 +71,14 @@ body > header > a img {
     height: auto;
 }
 
-.navigation,
-.header nav,
-body > header nav {
+.navigation {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
 }
 
-.navigation a,
-.header nav a,
-body > header nav a {
+.navigation a {
     color: var(--muted);
     font-size: 12px;
     font-weight: 700;
@@ -89,9 +86,7 @@ body > header nav a {
     transition: color 0.3s;
 }
 
-.navigation a:hover,
-.header nav a:hover,
-body > header nav a:hover {
+.navigation a:hover {
     color: var(--red-light);
 }
 
@@ -605,27 +600,15 @@ body > footer a:hover {
         padding: 25px;
         display: none;
         flex-direction: column;
+        align-items: center;
         gap: 25px;
         background: rgba(5, 5, 5, 0.98);
         border-bottom: 1px solid var(--border);
+        z-index: 1001;
     }
 
     .navigation.active {
         display: flex;
-    }
-
-    .header nav:not(.navigation),
-    body > header nav:not(.navigation) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 8px 15px;
-    }
-
-    .header nav:not(.navigation) a,
-    body > header nav:not(.navigation) a {
-        font-size: 10px;
-        letter-spacing: 1px;
     }
 
     .hero {
@@ -685,16 +668,6 @@ body > footer a:hover {
     .header > a img,
     body > header > a img {
         width: 105px;
-    }
-
-    .header nav:not(.navigation),
-    body > header nav:not(.navigation) {
-        gap: 5px 10px;
-    }
-
-    .header nav:not(.navigation) a,
-    body > header nav:not(.navigation) a {
-        font-size: 9px;
     }
 
     .hero {
@@ -792,4 +765,4 @@ body > footer a:hover {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
-}
+    }
