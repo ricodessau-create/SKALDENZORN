@@ -249,6 +249,98 @@ body > header > a img {
     color: white;
 }
 
+.shop-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, rgba(110, 27, 19, 0.2), transparent 65%),
+        linear-gradient(180deg, #080808, #15100e 50%, #080808);
+}
+
+.shop-card {
+    position: relative;
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 65px 45px;
+    overflow: hidden;
+    border: 1px solid rgba(211, 75, 50, 0.45);
+    border-top: 3px solid var(--red-light);
+    background:
+        radial-gradient(ellipse at top, rgba(130, 35, 24, 0.17), transparent 65%),
+        linear-gradient(145deg, #191513, #090909);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.shop-rune {
+    margin-bottom: 20px;
+    color: rgba(211, 75, 50, 0.8);
+    font-family: serif;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.shop-card h3 {
+    margin: 12px 0 20px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(25px, 4vw, 40px);
+    letter-spacing: 2px;
+    line-height: 1.3;
+}
+
+.shop-description {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.shop-formats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.shop-format {
+    min-width: 120px;
+    padding: 11px 22px;
+    border: 1px solid rgba(211, 75, 50, 0.35);
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.shop-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 17px 38px;
+    border: 1px solid var(--red-light);
+    background: linear-gradient(135deg, #761b16, #a52d20);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    transition: all 0.3s;
+}
+
+.shop-button:hover {
+    background: #c03a2b;
+    box-shadow: 0 0 35px rgba(180, 45, 30, 0.35);
+    transform: translateY(-3px);
+}
+
+.shop-note {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
 .band-section {
     position: relative;
     background:
@@ -599,6 +691,14 @@ body > footer a:hover {
         padding: 80px 6%;
     }
 
+    .shop-card {
+        padding: 50px 25px;
+    }
+
+    .shop-description {
+        font-size: 13px;
+    }
+
     .skald-grid {
         grid-template-columns: 1fr;
         max-width: 600px;
@@ -646,6 +746,27 @@ body > footer a:hover {
 
     .section-heading h2 {
         letter-spacing: 3px;
+    }
+
+    .shop-card {
+        padding: 40px 20px;
+    }
+
+    .shop-card h3 {
+        font-size: 25px;
+    }
+
+    .shop-format {
+        min-width: 105px;
+        padding: 10px 15px;
+        font-size: 11px;
+    }
+
+    .shop-button {
+        width: 100%;
+        padding: 16px 15px;
+        font-size: 10px;
+        letter-spacing: 2px;
     }
 
     .skald-intro {
@@ -722,4 +843,4 @@ body > footer a:hover {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
-}
+    }
